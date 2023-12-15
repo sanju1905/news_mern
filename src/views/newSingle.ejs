@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News-Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Source+Sans+3&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <style>
+        /* Custom CSS for navbar */
+        .navbar {
+            background-color: #343a40; /* Dark background color for the navbar */
+        }
+        .navbar .navbar-brand {
+            color: #fff; /* Text color for the brand */
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .navbar .header__search {
+            color: #fff; 
+            float: right;/* Text color for the search text */
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="bg-secondary p-3 navbar ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <a class="navbar-brand text-warning" href="/">S2 News</a>
+                </div>
+                <div class="col-6 text-right">
+                    <div class="header__search text-success" style="font-size: 25px; cursor: pointer; font-weight: bold;">Search</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="back">
+        <a href="/" class="text-primary mt-3" style="font-size: 25px;">&larr; Back</a>
+    </div>
+<div class="bar container">
+<% if (art != null) { %>
+    <div class="container mt-5">
+      
+        <img src="<%- art.thumbnail_url %>" alt="<%- art.title.rendered %>" class="img-fluid rounded">
+        <h5 class="font-weight-bold mt-3"><%- art.title.rendered %></h5>
+        <p class="lead"><%- art.content.rendered %></p>
+    </div>
+<% } else { %>
+    <div class="container mt-5">
+        <p class="alert alert-danger">No data Found</p>
+    </div>
+<% } %>
+</div>
+
+    <!-- Bootstrap JS scripts (optional) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

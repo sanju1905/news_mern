@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News-Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Source+Sans+3&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="bg-secondary position-fixed-fluid fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="text-warning" style="font-size: 25px; cursor: pointer; font-weight: bold;">S2 News</div>
+                </div>
+                <div class="col-6">
+                    <div class="header__search text-success text-right" style="font-size: 25px; cursor: pointer; font-weight: bold;">Search</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col">
+                    <div class="news">
+                        <% if(articles != null){ %>
+                        <% articles.forEach(function(article, index) { %>
+                            <a href="/article/<%- article.id %>" class="news__card card mt-3 " style="text-decoration: none;">
+                                <div class="card-body">
+                                    <img src="<%- article.thumbnail_url %>" alt="<%- article.title.rendered %>">
+                                    <h5 class="card-title " style="font-weight: bold;"><%- article.title.rendered %></h5>
+                                    <p class="card-text"><%- article    .excerpt.rendered %></p>
+                                </div>
+                            </a>
+                        <% }); %>
+                        <% }else{ %>
+             <p>No data Found</p>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS scripts (optional) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
